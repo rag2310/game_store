@@ -2,6 +2,8 @@ import page from 'page'
 import homepage from './homepage'
 //import contacto from './contacto'
 //import acercade from './acercade'
+//import busqueda from './busqueda'
+//import biblioteca from './biblioteca'
 import layout from './layout'
 
 
@@ -12,12 +14,20 @@ page('/', () => {
 
 //page('/contacto', () => {
 //	const main = document.querySelector('main')
-//	main.innerHtml = layout(homepage)
+//	main.innerHtml = layout(contacto)
 //})
 
 //page('/acercade', () => {
 //	const main = document.querySelector('main')
-//	main.innerHtml = layout(homepage)
+//	main.innerHtml = layout(acercade)
 //})
 
-//Falta
+//page('/busqueda', () => {
+//	const main = document.querySelector('main')
+//	main.innerHtml = layout(busqueda)
+//})
+
+//page('/biblioteca', () => {
+//	const main = document.querySelector('main')
+//	main.innerHtml = layout(biblioteca)
+//})
