@@ -2,8 +2,8 @@ import page from 'page'
 import homepage from './homepage'
 import contacto from './contactos'
 import acercade from './acercade'
-//import busqueda from './busqueda'
-//import biblioteca from './biblioteca'
+import busqueda from './busqueda'
+import biblioteca from './biblioteca'
 import layout from './layout'
 
 
@@ -22,12 +22,12 @@ page('/acercade', () => {
 	main.innerHTML = layout(acercade)
 })
 
-//page('/busqueda', () => {
-//	const main = document.querySelector('main')
-//	main.innerHTML = layout(busqueda)
-//})
+page('/busqueda', () => {
+	const main = document.querySelector('main')
+	main.innerHTML = layout(busqueda)
+})
 
-//page('/biblioteca', () => {
-//	const main = document.querySelector('main')
-//	main.innerHTML = layout(biblioteca)
-//})
+page('/biblioteca', () => {
+	const main = document.querySelector('main')
+	main.innerHTML = layout(biblioteca)
+})

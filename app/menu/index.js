@@ -10,6 +10,12 @@ const menu = `
 			<li>
 				<a href="/acercade">Acerca de</a>
 			</li>
+			<li>
+				<a href="/busqueda">busqueda</a>
+			</li>
+			<li>
+				<a href="/biblioteca">biblioteca</a>
+			</li>
 		</ul>
 	</nav>
 `
