@@ -1,0 +1,20 @@
+{
+	"games": [
+		{
+			"id":1,
+			"nombre":"F.E.A.R",
+			"genero":["Shooter","accion"],
+			"descripcion":"Juego Shooter sobre natural",
+			"fecha_alta":"23-10-2017",
+			"fecha_baja": " "		
+		},
+		{
+			"id":2,
+			"nombre":"Fallout 4",
+			"genero":["Shooter","accion","rpg"],
+			"descripcion":"En mundo post apocalíptico...",
+			"fecha_alta":"23-10-2017",
+			"fecha_baja": " "		
+		}
+	]
+}
