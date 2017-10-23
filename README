@@ -1,0 +1,57 @@
+{
+	"usuario":{
+		"id",
+		"username",
+		"password",
+		"email",
+		"url_avatar",
+		"tipo_user",
+		"region",
+		"fecha_alta",
+		"fecha_actual",
+		"fecha_baja"
+	},
+	"producto": {
+		"id",
+		"id_provedor",
+		"descripcion",
+		"precio",
+		"fecha_alta",
+		"fecha_baja",
+		"fecha_actual",
+		"url_imagen",
+		"fecha_lanzamiento",
+		"id_genero"
+	},
+	"provedores":{
+		"id",
+		"nombre",
+		"descripcion"
+	},
+  "genero":{
+  	"id",
+  	"descripcion"
+  },
+  "Biblioteca": {
+  	"id",
+  	"id_user",
+  	"id_producto"
+  },
+  "carrito": {
+  	"productos": ["id_producto"]
+  },
+  "factura": {
+  	"id",
+  	"id_detalles",
+  	"id_usaurio",
+  	"fecha_alta",
+  	"fecha_actual"
+  },
+  "detalles": {
+  	"id",
+  	"id_producto",
+  	"cantidad",
+  	"precio",
+  	"total"
+  }
+}

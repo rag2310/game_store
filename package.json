@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "materialize-css": "^0.100.2",
+    "firebase": "^4.6.0",
     "page": "^1.7.1"
   }
 }
