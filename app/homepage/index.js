@@ -52,7 +52,7 @@ const index = `
 										</div>
 										<h3 class="product-title"><a href="/">Nombre</a></h3>
 										<small class="price"></small>
-										<p>Lorem ipsum dolor sit consectetur adipiscing elit do eiusmod tempor...</p>
+										<p>Lorem ipsum dolor sit consectetur adipiscing elit do eiusmod teempor...</p>
 									</div>
 								</div> <!-- .product -->
 
