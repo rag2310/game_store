@@ -67,11 +67,6 @@ const index = `
 									
 									</div>
 								</div> <!-- .product -->
-
-								
-
-
-
 							</div> <!-- .product-lista -->
 
 						</section>

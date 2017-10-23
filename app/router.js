@@ -44,17 +44,35 @@ page('/biblioteca', () => {
 		var arrayHTML = ''
 		for (var i = 0; i < arrayDatos.length; i++) {
 			arrayHTML += `
-				<li>
-					${arrayDatos[i].nombre}
-				<li>
+				<div class="product">
+					<div class="inner-product">
+						<div class="figure-image">
+							<img src="${arrayDatos[i].url}" alt="game 1">
+						</div>
+						<h3 class="product-title">${arrayDatos[i].nombre}</h3>
+					</div>
+						<small class="price">$ ${arrayDatos[i].precio}</small>
+						<p>${arrayDatos[i].descripcion}</p>
+				</div>
 			`
 		}
 
 		var html = `
-			<h1>Lista de juegos</h1>
-			<ul>
-				${arrayHTML}
-			</ul>
+		<main class="main-content">
+			<div class="container">
+				<div class="page">
+					<section>
+						<header>
+							<h2 class="section-title">Nuevos productos</h2>
+							<a href="/" class="all">Ver todos</a>
+						</header>
+						<div class="product-list">
+							${arrayHTML}
+						</div>
+					</section>
+				</div>
+			</div>
+		</main> 
 		`
 
 		main.innerHTML = layout(html)
