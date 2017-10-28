@@ -3,10 +3,11 @@ import homepage from './homepage'
 import contacto from './contactos'
 import acercade from './acercade'
 import busqueda from './busqueda'
-//import biblioteca from './biblioteca'
+import cargarDatos from './biblioteca'
 import layout from './layout'
 import firebase from 'firebase'
-import config from './config'
+import config from './../config'
+//const biblioteca = require('./biblioteca')
 
 
 
@@ -30,7 +31,14 @@ page('/busqueda', () => {
 	main.innerHTML = layout(busqueda)
 })
 
+page('/biblioteca',cargarDatos)
+/*
 page('/biblioteca', () => {
+	const main = document.querySelector('main')
+	main.innerHTML = layout(biblioteca)
+})
+*/
+/*page('/biblioteca', () => {
 	var main = document.querySelector('main')
 	if (!firebase.apps.length) {
 	firebase.initializeApp(config)
@@ -38,7 +46,32 @@ page('/biblioteca', () => {
 
 	var db = firebase.database()
 
-	function obtenerDatos (datos) {
+	function obtenerDatos (dato) {
+		const datos = dato.val()
+
+		const keys = Object.keys(datos)
+		let html = ''
+
+		for( var i = 0; i <keys.length; i++) {
+			const key = keys[i]
+			const game = datos[key]
+
+			const htmlGame = `
+				<div class="product">
+					<div class="inner-product">
+						<div class="figure-image">
+							<img src="${game.url}">
+						</div>
+						<h3 class="product-title">${game.nombre}</h3>
+					</div>
+						<small class="price">$ ${game.precio}</small>
+						<p>${game.descripcion}</p>
+				</div>
+			`
+
+			html += htmlGame
+		}
+		--viejho
 		var arrayDatos = datos.val()
 		var main = document.querySelector('main')
 		var arrayHTML = ''
@@ -74,14 +107,10 @@ page('/biblioteca', () => {
 			</div>
 		</main> 
 		`
-
-		main.innerHTML = layout(html)
-	}
-	db.ref('games').once('value').then(obtenerDatos)
+		*/
+		//main.innerHTML = layout(html)
+	//}
+	//db.ref('games').once('value').then(obtenerDatos)
 	//main.innerHTML = layout(biblioteca)
-})
-
-//page('/biblioteca', () => {
-//	const main = document.querySelector('main')
-//	main.innerHTML = layout(biblioteca)
 //})
+
