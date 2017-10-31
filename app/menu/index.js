@@ -28,4 +28,6 @@ const menu = `
 			</div> <!-- .site-header -->
 `
 
-export default menu
+const header = document.querySelector('header')
+
+header.innerHTML = menu

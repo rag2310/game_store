@@ -78,47 +78,6 @@ const index = `
 					</div>
 				</div> <!-- .container -->
 			</main> <!-- .main-content -->
-
-			<div class="site-footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-2">
-							<div class="widget">
-								<h3 class="widget-title">Informacion</h3>
-								<ul class="no-bullet">
-									<li><a href="/contactos">contactanos</a></li>
-									<li><a href="/acercade">Acerca de </a></li>
-									<li><a href="/biblioteca">Biblioteca</a></li>
-									<li><a href="/busqueda">Busqueda</a></li>
-								</ul>
-							</div> <!-- .widget -->
-						</div> <!-- column -->
-					
-					
-
-		<div class="overlay"></div>
-
-		<div class="auth-popup popup">
-			<a href="#" class="close"><i class="fa fa-times"></i></a>
-			<div class="row">
-				<div class="col-md-6">
-					<h2 class="section-title">Login</h2>
-					<form action="#">
-						<input type="text" placeholder="Username...">
-						<input type="password" placeholder="Password...">
-						<input type="submit" value="Login">
-					</form>
-				</div> <!-- .column -->
-				<div class="col-md-6">
-					<h2 class="section-title">Create an account</h2>
-					<form action="#">
-						<input type="text" placeholder="Username...">
-						<input type="text" placeholder="Email address...">
-						<input type="submit" value="register">
-					</form>
-				</div> <!-- .column -->
-			</div> <!-- .row -->
-		</div> <!-- .auth-popup -->
 `
 
 export default index

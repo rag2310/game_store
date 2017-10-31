@@ -6,4 +6,6 @@ import './main.css'
 
 import './detalle'
 
+import './layout.js'
+
 page()

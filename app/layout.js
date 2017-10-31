@@ -1,7 +1,3 @@
-import menu from './menu'
+import './menu'
 
-const layout = (children) => {
-	return `${menu} ${children}`
-}
-
-export default layout 
+import './footer'
