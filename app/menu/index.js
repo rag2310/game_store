@@ -1,10 +1,10 @@
 const menu = `
 		<div class="site-header">
 				<div class="container">
-					<a href="index.html" id="branding">
+					<a href="/" id="branding">
 						<img src="" alt="" class="logo">
 						<div class="logo-text">
-							<h1 class="site-title">BIZZARRO STORE</h1>
+							<h1 class="site-title">GAME STORE</h1>
 							<small class="site-description">Todo en juegos</small>
 						</div>
 					</a> <!-- #branding -->
@@ -14,11 +14,9 @@ const menu = `
 						<ul class="menu">
 							<li class="menu-item home current-menu-item"><a href="/"><i class="icon-home"></i></a></li>
 							<li class="menu-item"><a href="/">Inicio</a></li>
-							<li class="menu-item"><a href="/contactos">Contactanos</a></li>
-							<li class="menu-item"><a href="/acercade">acerca de</a></li>
-							<li class="menu-item"><a href="/biblioteca">Biblioteca</a></li>
-							<li class="menu-item"><a href="/busqueda">Busqueda</a></li>
-						
+							<li class="menu-item"><a href="/tienda">Tienda</a></li>							
+							<li class="menu-item"><a href="/biblioteca">Biblioteca</a></li>						
+							<li class="menu-item"><a href="/acercade">Acerca de</a></li>
 						</ul> <!-- .menu -->
 						
 

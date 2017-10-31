@@ -11,7 +11,7 @@ var html = ''
 var htmlGame = ''
 var index = ''
 
-const cargarDatos = () => {
+const cargarDatosTienda = () => {
 
 function obtenerDatos (dato) {
 		const datos = dato.val()
@@ -43,7 +43,7 @@ function obtenerDatos (dato) {
 				<div class="page">
 					<section>
 						<header>
-							<h2 class="section-title">Mi Biblioteca</h2>
+							<h2 class="section-title">Tienda</h2>
 						</header>
 						<div class="product-list">
 							${html}
@@ -60,4 +60,4 @@ function obtenerDatos (dato) {
 db.ref('games').once('value').then(obtenerDatos)
 }
 
-export default cargarDatos
+export default cargarDatosTienda
