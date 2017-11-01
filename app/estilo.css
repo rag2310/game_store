@@ -2229,7 +2229,7 @@ form textarea {
   content: " ";
   width: 7px;
   height: 5px;
- 
+
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
@@ -2353,6 +2353,7 @@ form textarea {
   float: left;
   margin-bottom: 30px;
 }
+
 @media screen and (max-width: 990px) {
   .product-list .product {
     width: 50%;
@@ -2365,9 +2366,12 @@ form textarea {
 }
 .product-list .product .inner-product {
   background: white;
-  padding: 30px;
+  padding: 10px;
   border-radius: 3px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+.product-list .product .inner-product{
+  padding-bottom: 50px;
 }
 .product-list .product .inner-product a.button {
   margin-bottom: 10px;
@@ -2390,7 +2394,8 @@ form textarea {
   border: 4px solid #dedede;
   border-radius: 3px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 19px;
+
 }
 .product-list .product .figure-image img {
   max-width: 100%;
@@ -2419,8 +2424,13 @@ form textarea {
   font-size: 16px;
   font-size: 1.1428571429em;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   display: block;
+}
+.product-list .product .price{
+  margin-left: 1px;
+  line-height: 25px;
+
 }
 .product-list .product .button, .product-list .product form input[type="submit"], form .product-list .product input[type="submit"], .product-list .product form button, form .product-list .product button, .product-list .product form input[type="reset"], form .product-list .product input[type="reset"] {
   padding: 5px 10px;

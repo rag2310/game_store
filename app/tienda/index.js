@@ -17,7 +17,7 @@ function obtenerDatos (dato) {
 		const datos = dato.val()
 
 		const keys = Object.keys(datos)
-		
+
 
 		for( var i = 0; i <keys.length; i++) {
 			const key = keys[i]
@@ -30,8 +30,9 @@ function obtenerDatos (dato) {
 							<img src="${game.url}">
 						</div>
 						<h3 class="product-title"><a href="/detalle/${key}">${game.nombre}</a></h3>
+						<small class="price">Precio: $ ${game.precio}</small>
 					</div>
-						<small class="price">$ ${game.precio}</small>
+
 				</div>
 			`
 			html += htmlGame
@@ -51,7 +52,7 @@ function obtenerDatos (dato) {
 					</section>
 				</div>
 			</div>
-		</main> 
+		</main>
 		`
 		const main = document.querySelector('main')
 		main.innerHTML = index//layout(index)

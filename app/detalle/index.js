@@ -32,7 +32,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 							<h2 class="entry-title">${game.nombre}</h2>
 							<small class="price"> $ ${game.precio}</small>
 
-							<p>${game.descripcion}</p>
+							<p Style= "text-align: justify">${game.descripcion}</p>
 
 							</div>
 						</div>

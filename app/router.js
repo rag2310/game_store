@@ -1,6 +1,6 @@
 import page from 'page'
 import homepage from './homepage'
-import contacto from './contactos'
+//import contacto from './contactos'
 import acercade from './acercade'
 import cargarDatosTienda from './tienda'
 import cargarDatos from './biblioteca'
@@ -17,7 +17,7 @@ page('/', () => {
 
 page('/acercade', () => {
 	const main = document.querySelector('main')
-	main.innerHTML = acercade 
+	main.innerHTML = acercade
 })
 
 page('/tienda',cargarDatosTienda)
