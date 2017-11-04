@@ -2204,7 +2204,7 @@ form textarea {
 }
 .right-section a {
   color: white;
-  margin-left: 20px;
+  margin-left: 800px;/*revisar*/
 
   -webkit-transition: .3s ease;
           transition: .3s ease;
