@@ -16,6 +16,7 @@ const menu = `
 							<li class="menu-item"><a href="/tienda">Tienda</a></li>
 							<li class="menu-item"><a href="/biblioteca">Biblioteca</a></li>
 							<li class="menu-item"><a href="/acercade">Acerca de</a></li>
+							<li class="menu-item"><a href="/guardar">Guardar</a></li>
 						</ul> <!-- .menu -->
 						<div class="mobile-navigation">
 						</div> <!-- .mobile-navigation -->

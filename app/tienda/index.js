@@ -7,17 +7,19 @@ if (!firebase.apps.length) {
 }
 
 var db = firebase.database()
-var html = ''
-var htmlGame = ''
-var index = ''
+
 
 const cargarDatosTienda = () => {
 
 function obtenerDatos (dato) {
+	var html = ''
+	var htmlGame = ''
+	var index = ''
+	
 		const datos = dato.val()
 
 		const keys = Object.keys(datos)
-
+		debugger;
 
 		for( var i = 0; i <keys.length; i++) {
 			const key = keys[i]
