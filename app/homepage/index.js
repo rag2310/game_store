@@ -1,4 +1,9 @@
 const index = `
+
+				<div class="right-section pull-right">
+						<a href="#" class="login-button">Login/Register</a>
+					</div> <!-- .right-section -->
+
 			<div class="home-slider">
 				<ul class="slides">
 					<li data-bg-image="">

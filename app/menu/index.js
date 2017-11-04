@@ -9,6 +9,11 @@ const menu = `
 						</div>
 					</a> <!-- #branding -->
 
+					<div class="right-section pull-right">
+						<a href="#" class="login-button">Login/Register</a>
+					</div> <!-- .right-section -->
+
+
 					<div class="main-navigation">
 						<button class="toggle-menu"><i class="fa fa-bars"></i></button>
 						<ul class="menu">

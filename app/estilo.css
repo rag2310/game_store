@@ -2200,10 +2200,12 @@ form textarea {
 
 .right-section {
   color: white;
+  margin-top: 7px
 }
 .right-section a {
   color: white;
   margin-left: 20px;
+
   -webkit-transition: .3s ease;
           transition: .3s ease;
 }
