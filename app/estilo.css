@@ -2557,7 +2557,7 @@ section header .all {
 
 table.cart {
   border-collapse: separate;
-  border-spacing: 0 20px;
+  border-spacing: 57px 20px;
   width: 100%;
   margin: 0 0 30px;
   padding: 0;
@@ -2671,7 +2671,7 @@ table.cart .fa-times {
   font-weight: 400;
 }
 .site-footer .colophon {
-  margin-top: 80px;
+  margin-top: -13px;
   *zoom: 1;
 }
 .site-footer .colophon:after {
