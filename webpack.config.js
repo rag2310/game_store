@@ -1,6 +1,7 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var config = {
+	devtool: "eval-source-map",
 	entry: __dirname + '/app/main.js',
 	output: {
 		path: __dirname + '/public',
