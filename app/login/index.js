@@ -8,3 +8,5 @@ if (!firebase.apps.length) {
 	}
 
 var index = `<h1>bienvenido</h1>`
+
+export default index 

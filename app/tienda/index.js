@@ -19,7 +19,6 @@ function obtenerDatos (dato) {
 		const datos = dato.val()
 
 		const keys = Object.keys(datos)
-		debugger;
 
 		for( var i = 0; i <keys.length; i++) {
 			const key = keys[i]
