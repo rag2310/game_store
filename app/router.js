@@ -5,6 +5,7 @@ import cargarDatosTienda from './tienda'
 import cargarDatos from './biblioteca'
 import layout from './layout'
 import guardar from './nuevojuego'
+import login from './login'
 
 //TEST
 import config from './../config'
@@ -28,8 +29,16 @@ page('/tienda', cargarDatosTienda)
 
 page('/biblioteca',cargarDatos)
 
+
+page('/login',()=>{
+var main = document.querySelector('main')
+
+	main.innerHTML = login
+	var btnLogin = document.querySelector('#googleLogin')
+  if (btnLogin) btnLogin.addEventListener('click', login)
+})
 //TEST
-page('/guardar',() => { 
+page('/guardar',() => {
 	const main = document.querySelector('main')
 	main.innerHTML = guardar})
 

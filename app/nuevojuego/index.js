@@ -58,11 +58,6 @@ var db = firebase.database()
 						</table>
 
 
-
-
-
-
-
 			`
 
 export default index

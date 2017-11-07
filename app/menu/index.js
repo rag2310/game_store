@@ -10,7 +10,7 @@ const menu = `
 					</a> <!-- #branding -->
 
 					<div class="right-section pull-right">
-						<a href="#" class="login-button">Login/Register</a>
+						<a href="/login" class="login-button">Login/Register</a>
 					</div> <!-- .right-section -->
 
 
