@@ -35,6 +35,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 							<p Style= "text-align: justify">${game.descripcion}</p>
 
 							</div>
+							<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}">borrar</a></h3>
 						</div>
 					</div>
 				</div>
@@ -45,7 +46,27 @@ page('/detalle/:codigoGame', (ctx, next) => {
 		`
 
 		const main = document.querySelector('main')
-
+		debugger;
 		main.innerHTML = html
+
+		var borrarBtn = document.querySelector('#borrar')
+		borrarBtn.addEventListener('click', borrar)
 	})
 })
+
+
+function borrar () {
+	let doc = document;
+	let key  = doc.getElementById('borrar').getAttribute('key')
+
+	var confirmarBorrado = confirm("prueba")
+
+	console.log(confirmarBorrado)
+			
+	if (key!=null && confirmarBorrado == true) {
+		var ref = db.ref("games")
+		ref.child(key).remove()
+
+		page.redirect('/tienda')
+	}
+}
