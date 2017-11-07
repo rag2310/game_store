@@ -8,6 +8,6 @@ import './detalle'
 
 import './layout.js'
 
-import './delete'
+//import './delete'
 
 page()
