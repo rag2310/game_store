@@ -56,8 +56,7 @@ function obtenerDatos (dato) {
 		</main>
 		`
 		const main = document.querySelector('main')
-		main.innerHTML = index//layout(index)
-}
+		main.innerHTML = index
 
 db.ref('games').once('value').then(obtenerDatos)
 }

@@ -19,11 +19,10 @@ var loginTemplate = `
 var template = `
 <div class="container">
 					<div class="page">
-
 						<table class="cart">
 							<tbody>
 								<tr>
-									<td class="product-name">
+									<td class="product-name  login-container">
 										${loginTemplate}
 									</td>
 								</tr>
@@ -54,10 +53,17 @@ function login (e) {
 
 			let loginContainer = document.querySelector('.login-container')
 
-			let html = `Bienvenido ${user.displayName} <img style="height: 50px; border-radius: 50%;" class="photoURL" src=${user.photoURL} alt=${user.displayName} />`
-			loginContainer.innerHTML = `
-				${html}
-				<li><a id="salir" href="!#">Salir</a></li>`
+			let html = `
+			<div class="col-md-12" style= "text-align: center">
+				<h2 class="section-title">Bienvenido ${user.displayName} </h2>
+				<img style="height: 50px; border-radius: 50%;" class="photoURL" 
+				src=${user.photoURL} alt=${user.displayName} />
+				<div class = "col-md-12">		
+					<a id="salir" href="!#" class="waves-effect waves-light btn red darken-1">Salir</a>
+				</div>
+			</div>`
+
+			loginContainer.innerHTML = html
 
 			var btnSalir = document.querySelector('#salir')
 			btnSalir.addEventListener('click', logout)
