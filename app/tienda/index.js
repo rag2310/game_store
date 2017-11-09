@@ -15,7 +15,7 @@ function obtenerDatos (dato) {
 	var html = ''
 	var htmlGame = ''
 	var index = ''
-	
+
 		const datos = dato.val()
 
 		const keys = Object.keys(datos)
@@ -60,5 +60,5 @@ function obtenerDatos (dato) {
 
 db.ref('games').once('value').then(obtenerDatos)
 }
-
+}
 export default cargarDatosTienda
