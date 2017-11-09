@@ -68,7 +68,7 @@ var formTemplate = `
 								<input type="text" placeholder="Nombre" id="precio">
 							</div> <!-- .column -->
 							<div class="col-md-6" style ="text-align:center">
-								<div class="file-field input-field">
+								<div class="file-field input-field" style=" margin-top:49px" >
 									<div class="btn">
 										<span>File</span>
 										<input type="file" id="file">
@@ -78,10 +78,10 @@ var formTemplate = `
 							<div class="col-md-6" style ="text-align:center">
 								<!--<h2 class="section-title">fecha</h2>
 								<input type="text" placeholder="Nombre" id="fecha">-->
-							</div> <!-- .column -->							
-							<div class="col-md-6" >
+							</div> <!-- .column -->
+							<div class="col-md-12" style = "text-align:center" >
 								<a id="guardar">Guardar</a>
-							</div> 
+							</div>
 						</div>
 					</td>
 				</tr>

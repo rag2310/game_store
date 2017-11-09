@@ -5,23 +5,32 @@ import page from 'page'
 if (!firebase.apps.length) {
 	firebase.initializeApp(config)
 }
-
+	
 var loginTemplate = `
-<h4 class="card-title center">Sing in / Sing up</h4>
-         	<div class="row">
-	         	<div class="row center">
-	         		<a id="googleLogin" class="waves-effect waves-light btn red darken-1">Login con Google</a>
-	         	</div>
-         	</div>`
+<div class="col-md-12" style= "text-align: center">
+				<h2 class="section-title">Sign in/ Sign up</h2>
+			<div class = "col-md-12">
+				<a id="googleLogin" class="waves-effect waves-light btn red darken-1">Login con Google</a>
+			</div>
+			</div> <!-- .column -->
+		</div> <!-- .row -->
+`
 
 var template = `
-    <div class="row">
-      <div class="col s12 l12">
-        <div class="card-panel login-container">
-        	${loginTemplate}
-        </div>
-      </div>
-    </div> `
+<div class="container">
+					<div class="page">
+
+						<table class="cart">
+							<tbody>
+								<tr>
+									<td class="product-name">
+										${loginTemplate}
+									</td>
+								</tr>
+						</table
+					</div>
+				</div> <!-- .container -->
+    `
 
 page('/login', ()=> {
 	var main = document.querySelector('main')
