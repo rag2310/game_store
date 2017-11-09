@@ -4,8 +4,8 @@ import acercade from './acercade'
 import cargarDatosTienda from './tienda'
 import cargarDatos from './biblioteca'
 import layout from './layout'
-//import guardar from './nuevojuego'
-//import login from './login'
+import './nuevojuego'
+import './login'
 
 //TEST
 import config from './../config'
@@ -32,7 +32,7 @@ page('/tienda', cargarDatosTienda)
 page('/biblioteca',cargarDatos)
 
 //TEST
-page('/guardar',() => {
+/*page('/guardar',() => {
 	const main = document.querySelector('main')
 	//main.innerHTML = guardar
 	main.innerHTML = formTemplate
@@ -150,7 +150,7 @@ function seleccionarImagen(e) {
 	var target = e.target
 	fileSelected = target.files[0]
 }
-
+*//*
 var loginTemplate = `
 <h4 class="card-title center">Sing in / Sing up</h4>
          	<div class="row">
@@ -214,5 +214,5 @@ function logout (e) {
 		console.log(err.message)
 	})
 }
-
+*/
 //TEST
