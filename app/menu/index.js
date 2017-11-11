@@ -23,6 +23,7 @@ const menu = `
 							<li class="menu-item"><a href="/acercade">Acerca de</a></li>
 							<li class="menu-item"><a href="/guardar">Guardar</a></li>
 							<li class="menu-item"><a href="/correo">Email</a></li>
+							<li class="menu-item"><a href="/update">Update</a></li>
 						</ul> <!-- .menu -->
 						<div class="mobile-navigation">
 						</div> <!-- .mobile-navigation -->
