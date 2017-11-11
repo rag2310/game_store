@@ -9,6 +9,7 @@ if (!firebase.apps.length) {
 	}
 
 var db = firebase.database()
+//
 
 page('/detalle/:codigoGame', (ctx, next) => {
 	db.ref('/games/' + ctx.params.codigoGame).once('value').then((snapshot) => {
@@ -35,8 +36,11 @@ page('/detalle/:codigoGame', (ctx, next) => {
 							<p Style= "text-align: justify">${game.descripcion}</p>
 
 							</div>
-							<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}">borrar</a></h3>
+
 						</div>
+						<div class="addtocart-bar col-sm-2" style = " text-align;center">
+										<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" style = "margin-top:50px">borrar</a></h3>
+									</div>
 					</div>
 				</div>
 			</div>
@@ -62,7 +66,7 @@ function borrar () {
 	var confirmarBorrado = confirm("prueba")
 
 	console.log(confirmarBorrado)
-			
+
 	if (key!=null && confirmarBorrado == true) {
 		var ref = db.ref("games")
 		ref.child(key).remove()
