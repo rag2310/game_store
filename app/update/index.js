@@ -29,9 +29,9 @@ page('/update/:codigoGame', (ctx, next) => {
 							</div>
 						</div>
 						<div class="col-sm-6 col-md-8">
-							<input type="text" value="${game.nombre}">
-							<input type="text" value="${game.precio}">
-							<input type="text" value="${game.descripcion}">
+							<input type="text" value="${game.nombre}" id="nombreGame">
+							<input type="text" value="${game.precio}" id="precioGame">
+							<input type="text" value="${game.descripcion}" id="descripcionGame">
 						</div>
 
 						</div>
@@ -43,7 +43,7 @@ page('/update/:codigoGame', (ctx, next) => {
 										descripcion="${game.descripcion}"
 										fecha_alta="${game.fecha_alta}"
 										genero="${game.genero}"
-										id="${game.id}"
+										identificador="${game.id}"
 										nombre="${game.nombre}"
 										precio="${game.precio}"
 										url="${game.url}"
@@ -74,40 +74,39 @@ page('/update/:codigoGame', (ctx, next) => {
 })
 
 function update () {
+	debugger;
 	let doc = document;
 	let key  = doc.getElementById('update').getAttribute('key')
-	let descripcion  = doc.getElementById('update').getAttribute('descripcion')
+	let nombre1  = doc.querySelector('#nombreGame').value
+	let precio1  = doc.querySelector('#precioGame').value
+	let descripcion1  = doc.querySelector('#descripcionGame').value
 	let fecha_alta  = doc.getElementById('update').getAttribute('fecha_alta')
 	let genero  = doc.getElementById('update').getAttribute('genero')
-	let id  = doc.getElementById('update').getAttribute('id')
-	let nombre  = doc.getElementById('update').getAttribute('nombre')
-	let precio  = doc.getElementById('update').getAttribute('precio')
+	let identificador  = doc.getElementById('update').getAttribute('id')
 	let url  = doc.getElementById('update').getAttribute('url')
 var updates = {};
 
 var postData = {
-    descripcion: descripcion,
+    descripcion: descripcion1,
     fecha_alta: fecha_alta,
     genero: genero,
-    id: id,
-    nombre: nombre,
-    precio: precio,
+    id: identificador,
+    nombre: nombre1,
+    precio: precio1,
     url: url
 };
 
+console.log(key)
 
 console.log(postData)
 
-/*
+updates['/games/' + key] = postData;
 
-	updates['/posts/' + newPostKey] = postData;
+console.log(updates)
 
-	if (key!=null && confirmarBorrado == true) {
-		var ref = db.ref("games")
-		ref.child(key).remove()
+firebase.database().ref().update(updates);
 
-		page.redirect('/tienda')
-	}*/
+page.redirect('/tienda')
 }
 
 function borrar () {
