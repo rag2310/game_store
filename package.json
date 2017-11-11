@@ -1,7 +1,7 @@
 {
   "name": "game_store",
   "version": "1.0.0",
-  "description": "",
+  "description": "{\r \t\"usuario\":{\r \t\t\"id\",\r \t\t\"username\",\r \t\t\"password\",\r \t\t\"email\",\r \t\t\"url_avatar\",\r \t\t\"tipo_user\",\r \t\t\"region\",\r \t\t\"fecha_alta\",\r \t\t\"fecha_actual\",\r \t\t\"fecha_baja\"\r \t},\r \t\"producto\": {\r \t\t\"id\",\r \t\t\"id_provedor\",\r \t\t\"descripcion\",\r \t\t\"precio\",\r \t\t\"fecha_alta\",\r \t\t\"fecha_baja\",\r \t\t\"fecha_actual\",\r \t\t\"url_imagen\",\r \t\t\"fecha_lanzamiento\",\r \t\t\"id_genero\"\r \t},\r \t\"provedores\":{\r \t\t\"id\",\r \t\t\"nombre\",\r \t\t\"descripcion\"\r \t},\r   \"genero\":{\r   \t\"id\",\r   \t\"descripcion\"\r   },\r   \"Biblioteca\": {\r   \t\"id\",\r   \t\"id_user\",\r   \t\"id_producto\"\r   },\r   \"carrito\": {\r   \t\"productos\": [\"id_producto\"]\r   },\r   \"factura\": {\r   \t\"id\",\r   \t\"id_detalles\",\r   \t\"id_usaurio\",\r   \t\"fecha_alta\",\r   \t\"fecha_actual\"\r   },\r   \"detalles\": {\r   \t\"id\",\r   \t\"id_producto\",\r   \t\"cantidad\",\r   \t\"precio\",\r   \t\"total\"\r   }\r }",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server"
@@ -25,5 +25,13 @@
     "materialize-css": "^0.100.2",
     "firebase": "^4.6.0",
     "page": "^1.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rag2310/game_store.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rag2310/game_store/issues"
+  },
+  "homepage": "https://github.com/rag2310/game_store#readme"
 }

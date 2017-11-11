@@ -9,6 +9,21 @@ if (!firebase.apps.length) {
 var loginTemplate = `
 <div class="col-md-12" style= "text-align: center">
 				<h2 class="section-title">Sign in/ Sign up</h2>
+				<div>
+					<form>
+						<div class = "col-md-12">
+							<label>email</label>
+							<input type="email" name="email" id="email">
+						<div>
+						<div class = "col-md-12">
+							<label>Password</label>
+							<input type="password" name="psw" id="password">
+						</div>
+						<div class = "col-md-12">
+							<a id="loginEmail">Login con EMAIL</a>
+						</div>
+					</form>
+			</div>
 			<div class = "col-md-12">
 				<a id="googleLogin" class="waves-effect waves-light btn red darken-1">Login con Google</a>
 			</div>
@@ -38,9 +53,28 @@ page('/login', ()=> {
 
 	var btnLogin = document.querySelector('#googleLogin')
 	if (btnLogin) btnLogin.addEventListener('click', login)
+
+	var btnLoginEmail = document.querySelector('#loginEmail')
+	if (btnLoginEmail) btnLoginEmail.addEventListener('click', loginEmail)
 })
 
-//login
+//loginEmail
+
+function loginEmail (e) {
+	e.preventDefault()
+
+	console.log(document.querySelector('#email').value)
+	console.log(document.querySelector('#password').value)
+	var email = document.querySelector('#email').value
+	var pass = document.querySelector('#password').value
+
+	firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
+		var errorCode = error.code;
+		var errorMessage = error.message;
+	})
+}
+
+//loginGoggle
 
 function login (e) {
 	e.preventDefault()
