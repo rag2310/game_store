@@ -40,6 +40,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 						</div>
 						<div class="addtocart-bar col-sm-2" style = " text-align;center">
 										<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" style = "margin-top:50px">borrar</a></h3>
+										<h3 class="product-title"><a href="/update/${ctx.params.codigoGame}" style = "margin-top:50px">update</a></h3>
 									</div>
 					</div>
 				</div>
@@ -50,14 +51,14 @@ page('/detalle/:codigoGame', (ctx, next) => {
 		`
 
 		const main = document.querySelector('main')
-		debugger;
+		const title = document.querySelector('title')
 		main.innerHTML = html
+		title.innerHTML = 'Detalle'
 
 		var borrarBtn = document.querySelector('#borrar')
 		borrarBtn.addEventListener('click', borrar)
 	})
 })
-
 
 function borrar () {
 	let doc = document;

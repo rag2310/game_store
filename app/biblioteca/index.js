@@ -15,7 +15,6 @@ function obtenerDatos (dato) {
 		const datos = dato.val()
 		const main = document.querySelector('main')
 		const keys = Object.keys(datos)
-		main.innerHTML = ''
 		var html = ''
 		var htmlGame = ''
 		var index = ''
