@@ -53,21 +53,48 @@ page('/login', ()=> {
 
 	var btnLoginEmail = document.querySelector('#loginEmail')
 	if (btnLoginEmail) btnLoginEmail.addEventListener('click', loginEmail)
+
+
 })
 
 //loginEmail
 
 function loginEmail (e) {
-	e.preventDefault()
-
-	console.log(document.querySelector('#email').value)
-	console.log(document.querySelector('#password').value)
+	e.preventDefault()	
 	var email = document.querySelector('#email').value
 	var pass = document.querySelector('#password').value
 
 	firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
 		var errorCode = error.code;
 		var errorMessage = error.message;
+		var registrarse = confirm("Este usuario no existe")
+		if (registrarse) {
+			firebase.auth().createUserWithEmailAndPassword(email, pass).catch(function(error) {
+				var errorCode = error.code;
+				var errorMessage = error.message;
+			})			
+
+			var db = firebase.database()
+
+			firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+			    var ref = db.ref("users")
+						ref.push({							
+							displayName : user.email,
+      				email : user.email,
+      				emailVerified : user.emailVerified,
+      				photoURL : user.photoURL,
+      				providerData : user.providerData,
+      				tipo : "admin",
+      				uid : user.uid
+						})
+			    // ...
+			  } else {
+			    // User is signed out.
+			    // ...
+			  }
+			});
+		}
 	})
 }
 
@@ -81,6 +108,24 @@ function login (e) {
 	firebase.auth().signInWithPopup(provider)
 		.then(result => {
 			let user = result.user.providerData[0]
+
+			debugger;
+			var db = firebase.database()
+
+			var ref = db.ref("users")
+						ref.push({							
+							displayName : user.displayName,
+      				email : user.email,
+      				emailVerified : true,
+      				photoURL : user.photoURL,
+      				providerData : [{
+      					"email": user.email,
+      					"providerId": "google.com",
+      					"uid": user.email
+      				}],
+      				tipo : "cliente",
+      				uid : user.uid
+			})
 
 			let loginContainer = document.querySelector('.login-container')
 

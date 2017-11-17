@@ -6,16 +6,21 @@ import cargarDatos from './biblioteca'
 import layout from './layout'
 import './nuevojuego'
 import './login'
+import cargarUsuarios from './admin'
 
-page('/', () => {
+/*page('/', () => {
 	const main = document.querySelector('main')
 	main.innerHTML = homepage
-})
+})*/
+
+page('/', homepage)
 
 page('/acercade', () => {
 	const main = document.querySelector('main')
 	main.innerHTML = acercade
 })
+
+page('/admin',cargarUsuarios)
 
 page('/tienda', cargarDatosTienda)
 

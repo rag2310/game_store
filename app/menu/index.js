@@ -1,4 +1,37 @@
-const menu = `
+import firebase from 'firebase'
+
+import config from './../config'
+
+if (!firebase.apps.length) {
+	firebase.initializeApp(config)
+}
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+  	var login = `<div class="right-section pull-right">
+						<a href="/login" class="login-button">${user.email}</a>
+					</div> <!-- .right-section -->`
+		console.log("logueado")
+		var admin = `<li class="menu-item"><a href="/admin">Admin</a></li>`
+
+
+	const header = document.querySelector('header')
+
+	header.innerHTML = menu(login, admin)
+  } else {
+    var login = `<div class="right-section pull-right">
+						<a href="/login" class="login-button">Login/Register</a>
+					</div> <!-- .right-section -->`
+	console.log("NO logueado")
+
+	const header = document.querySelector('header')
+	var admin = ``
+
+	header.innerHTML = menu(login,admin)
+  }
+
+  function menu(login,admin) {
+  	const menu = `
 		<div class="site-header" >
 				<div class="container">
 					<a href="/" id="branding">
@@ -9,9 +42,7 @@ const menu = `
 						</div>
 					</a> <!-- #branding -->
 
-					<div class="right-section pull-right">
-						<a href="/login" class="login-button">Login/Register</a>
-					</div> <!-- .right-section -->
+					${login}
 
 
 					<div class="main-navigation">
@@ -22,8 +53,7 @@ const menu = `
 							<li class="menu-item"><a href="/biblioteca">Biblioteca</a></li>
 							<li class="menu-item"><a href="/acercade">Acerca de</a></li>
 							<li class="menu-item"><a href="/guardar">Guardar</a></li>
-							<li class="menu-item"><a href="/correo">Email</a></li>
-							<li class="menu-item"><a href="/update">Update</a></li>
+							${admin}
 						</ul> <!-- .menu -->
 						<div class="mobile-navigation">
 						</div> <!-- .mobile-navigation -->
@@ -33,7 +63,8 @@ const menu = `
 				</div> <!-- .container -->
 			</div> <!-- .site-header -->
 `
+	return menu
+  }
 
-const header = document.querySelector('header')
+});
 
-header.innerHTML = menu

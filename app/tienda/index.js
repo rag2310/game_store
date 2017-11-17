@@ -11,13 +11,11 @@ var db = firebase.database()
 
 const cargarDatosTienda = () => {
 	function obtenerDatos (dato) {
+		const datos = dato.val()
+		const keys = Object.keys(datos)
 		var html = ''
 		var htmlGame = ''
 		var index = ''
-
-			const datos = dato.val()
-
-
 
 			for( var i = 0; i <keys.length; i++) {
 				const key = keys[i]
