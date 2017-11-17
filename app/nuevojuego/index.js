@@ -10,7 +10,7 @@ var db = firebase.database()
 
 page('/guardar',() => {
 	const main = document.querySelector('main')
-	main.innerHTML = formTemplate
+	main.innerHTML = formTemplate	
 	var guardarBtn = document.querySelector('#guardar')
 	guardarBtn.addEventListener('click', guardar)
 
@@ -58,15 +58,15 @@ var formTemplate = `
 							<div class="col-md-6" style ="text-align:center">
 								<h2 class="section-title">Nombre</h2>
 								<input type="text" placeholder="Nombre" id="nombre">
-							</div> <!-- .column -->
+							</div>
 							<div class="col-md-6" style ="text-align:center">
 								<h2 class="section-title">Descripción</h2>
 								<input type="text" placeholder="Nombre" id="descripcion">
-							</div> <!-- .column -->
+							</div>
 							<div class="col-md-6" style ="text-align:center">
 								<h2 class="section-title" >Precio</h2>
 								<input type="text" placeholder="Nombre" id="precio">
-							</div> <!-- .column -->
+							</div>
 							<div class="col-md-6" style ="text-align:center">
 								<div class="file-field input-field" style=" margin-top:49px" >
 									<div class="btn">
@@ -76,9 +76,7 @@ var formTemplate = `
 								</div>
 							</div>
 							<div class="col-md-6" style ="text-align:center">
-								<!--<h2 class="section-title">fecha</h2>
-								<input type="text" placeholder="Nombre" id="fecha">-->
-							</div> <!-- .column -->
+							</div>
 							<div class="col-md-12" style = "text-align:center" >
 								<a id="guardar">Guardar</a>
 							</div>
@@ -89,7 +87,6 @@ var formTemplate = `
 		</table>
 	<form>
 </div>
-
 `
 
 var fileSelected = null
@@ -100,7 +97,7 @@ function guardar (e){
 
 	var storageRef = firebase.storage().ref()
 	var thisRef = storageRef.child(fileSelected.name);
-
+	
 	thisRef.put(fileSelected)
 	.then((snapshot) => {
 		return snapshot.downloadURL
