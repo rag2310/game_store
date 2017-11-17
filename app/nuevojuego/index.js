@@ -10,7 +10,7 @@ var db = firebase.database()
 
 page('/guardar',() => {
 	const main = document.querySelector('main')
-	main.innerHTML = formTemplate	
+	main.innerHTML = formTemplate
 	var guardarBtn = document.querySelector('#guardar')
 	guardarBtn.addEventListener('click', guardar)
 
@@ -78,7 +78,7 @@ var formTemplate = `
 							<div class="col-md-6" style ="text-align:center">
 							</div>
 							<div class="col-md-12" style = "text-align:center" >
-								<a id="guardar">Guardar</a>
+								<a id="guardar" class = "button">Guardar</a>
 							</div>
 						</div>
 					</td>
@@ -97,7 +97,7 @@ function guardar (e){
 
 	var storageRef = firebase.storage().ref()
 	var thisRef = storageRef.child(fileSelected.name);
-	
+
 	thisRef.put(fileSelected)
 	.then((snapshot) => {
 		return snapshot.downloadURL

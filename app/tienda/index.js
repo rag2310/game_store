@@ -61,8 +61,7 @@ const cargarDatosTienda = () => {
 }
 db.ref('games').once('value').then(obtenerDatos)
 }
-<<<<<<< HEAD
-}
-=======
->>>>>>> dev
+
+
+
 export default cargarDatosTienda
