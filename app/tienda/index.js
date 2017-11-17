@@ -60,5 +60,5 @@ function obtenerDatos (dato) {
 
 db.ref('games').once('value').then(obtenerDatos)
 }
-
+}
 export default cargarDatosTienda
