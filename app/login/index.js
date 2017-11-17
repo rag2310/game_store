@@ -5,27 +5,24 @@ import page from 'page'
 if (!firebase.apps.length) {
 	firebase.initializeApp(config)
 }
-	
+
 var loginTemplate = `
 <div class="col-md-12" style= "text-align: center">
 				<h2 class="section-title">Sign in/ Sign up</h2>
 				<div>
 					<form>
-						<div class = "col-md-12">
-							<label>email</label>
-							<input type="email" name="email" id="email">
-						<div>
-						<div class = "col-md-12">
-							<label>Password</label>
-							<input type="password" name="psw" id="password">
+
+						<div class = "col-md-12"  >
+						<label>email</label>
+						<input type="email" name="email" id="email" style = "padding: 10px 56px" >
+							<label style = "margin-left: 13px">Password</label>
+							<input type="password" name="psw" id="password" style = "padding: 10px 56px" >
 						</div>
-						<div class = "col-md-12">
-							<a id="loginEmail">Login con EMAIL</a>
+						<div class = "col-md-12" style = "margin-top:21px">
+							<a id="loginEmail" class= "button">Login con EMAIL</a>
+							<a id="googleLogin" class="button">Login con Google</a>
 						</div>
 					</form>
-			</div>
-			<div class = "col-md-12">
-				<a id="googleLogin" class="waves-effect waves-light btn red darken-1">Login con Google</a>
 			</div>
 			</div> <!-- .column -->
 		</div> <!-- .row -->
@@ -90,9 +87,9 @@ function login (e) {
 			let html = `
 			<div class="col-md-12" style= "text-align: center">
 				<h2 class="section-title">Bienvenido ${user.displayName} </h2>
-				<img style="height: 50px; border-radius: 50%;" class="photoURL" 
+				<img style="height: 50px; border-radius: 50%;" class="photoURL"
 				src=${user.photoURL} alt=${user.displayName} />
-				<div class = "col-md-12">		
+				<div class = "col-md-12">
 					<a id="salir" href="!#" class="waves-effect waves-light btn red darken-1">Salir</a>
 				</div>
 			</div>`

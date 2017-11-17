@@ -28,18 +28,26 @@ page('/update/:codigoGame', (ctx, next) => {
 								</figure>
 							</div>
 						</div>
-						<div class="col-sm-6 col-md-8">
-							<input type="text" value="${game.nombre}" id="nombreGame">
-							<input type="text" value="${game.precio}" id="precioGame">
-							<input type="text" value="${game.descripcion}" id="descripcionGame">
-						</div>
 
+						<div class="col-sm-6 col-md-8" style= "text-align: center">
+										<div>
+											<form>
+												<div >
+												<input type="text" value="${game.nombre}" id="nombreGame">
+												<input type="text" value="${game.precio}" id="precioGame">
+												<input type="text" value="${game.descripcion}" id="descripcionGame">
+
+												</div>
+											</form>
+									</div>
+									</div> <!-- .column -->
+								</div> <!-- .row -->
 						</div>
-						<div class="addtocart-bar col-sm-2" style = " text-align;center">
-										<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" style = "margin-top:50px">borrar</a></h3>
+						<div class="addtocart-bar col-md-12" style = " text-align:center">
+										<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" style = "margin-top:0px" class ="button">borrar</a></h3>
 										<h3 class="product-title">
-										<a 	id="update" 
-										key="${ctx.params.codigoGame}" 
+										<a 	id="update" class ="button"
+										key="${ctx.params.codigoGame}"
 										descripcion="${game.descripcion}"
 										fecha_alta="${game.fecha_alta}"
 										genero="${game.genero}"
@@ -47,7 +55,7 @@ page('/update/:codigoGame', (ctx, next) => {
 										nombre="${game.nombre}"
 										precio="${game.precio}"
 										url="${game.url}"
-										style= "margin-top:50px">
+										style= "margin-top:0px">
 										update
 										</a>
 										</h3>

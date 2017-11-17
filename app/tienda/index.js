@@ -14,10 +14,10 @@ const cargarDatosTienda = () => {
 		var html = ''
 		var htmlGame = ''
 		var index = ''
-		
+
 			const datos = dato.val()
 
-			const keys = Object.keys(datos)
+
 
 			for( var i = 0; i <keys.length; i++) {
 				const key = keys[i]
@@ -57,8 +57,11 @@ const cargarDatosTienda = () => {
 			const main = document.querySelector('main')
 			main.innerHTML = index
 
-	
+
 }
 db.ref('games').once('value').then(obtenerDatos)
 }
+
+
+
 export default cargarDatosTienda
