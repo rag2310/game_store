@@ -10,4 +10,6 @@ import './layout.js'
 
 import './update'
 
+import './usuario'
+
 page()

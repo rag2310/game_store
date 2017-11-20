@@ -20,7 +20,6 @@ var loginTemplate = `
 						</div>
 						<div class = "col-md-12" style = "margin-top:21px">
 							<a id="loginEmail" class= "button">Login con EMAIL</a>
-							<a id="googleLogin" class="button">Login con Google</a>
 						</div>
 					</form>
 			</div>
@@ -30,34 +29,47 @@ var loginTemplate = `
 
 var template = `
 <div class="container">
-					<div class="page">
-						<table class="cart">
-							<tbody>
-								<tr>
-									<td class="product-name  login-container">
-										${loginTemplate}
-									</td>
-								</tr>
-						</table
-					</div>
-				</div> <!-- .container -->
-    `
+	<div class="page">
+		<table class="cart">
+			<tbody>
+				<tr>
+					<td class="product-name  login-container">
+					${loginTemplate}
+					</td>
+				</tr>
+			</tbody>
+		</table
+	</div>
+</div> <!-- .container -->
+`
 
 page('/login', ()=> {
-	var main = document.querySelector('main')
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			var main = document.querySelector('main')
+			main.innerHTML = template
+			let loginContainer = document.querySelector('.login-container')
 
-	main.innerHTML = template
+			let html = `
+			<div class="col-md-12" style= "text-align: center">
+				<h2 class="section-title">Bienvenido ${user.email} </h2>
+				<div class = "col-md-12">
+					<a id="salir" href="!#" class="waves-effect waves-light btn red darken-1">Salir</a>
+				</div>
+			</div>`
 
-	var btnLogin = document.querySelector('#googleLogin')
-	if (btnLogin) btnLogin.addEventListener('click', login)
+			loginContainer.innerHTML = html
 
-	var btnLoginEmail = document.querySelector('#loginEmail')
-	if (btnLoginEmail) btnLoginEmail.addEventListener('click', loginEmail)
-
-
+			var btnSalir = document.querySelector('#salir')
+			btnSalir.addEventListener('click', logout)
+		} else {
+			var main = document.querySelector('main')
+			main.innerHTML = template
+			var btnLoginEmail = document.querySelector('#loginEmail')
+			if (btnLoginEmail) btnLoginEmail.addEventListener('click', loginEmail)
+		}
+	});
 })
-
-//loginEmail
 
 function loginEmail (e) {
 	e.preventDefault()	
@@ -85,55 +97,21 @@ function loginEmail (e) {
       				emailVerified : user.emailVerified,
       				photoURL : user.photoURL,
       				providerData : user.providerData,
-      				tipo : "admin",
+      				tipo : "cliente",
       				uid : user.uid
 						})
-			    // ...
-			  } else {
-			    // User is signed out.
-			    // ...
-			  }
+			  } 
 			});
 		}
 	})
-}
 
-//loginGoggle
-
-function login (e) {
-	e.preventDefault()
-
-	let provider = new firebase.auth.GoogleAuthProvider()
-
-	firebase.auth().signInWithPopup(provider)
-		.then(result => {
-			let user = result.user.providerData[0]
-
-			debugger;
-			var db = firebase.database()
-
-			var ref = db.ref("users")
-						ref.push({							
-							displayName : user.displayName,
-      				email : user.email,
-      				emailVerified : true,
-      				photoURL : user.photoURL,
-      				providerData : [{
-      					"email": user.email,
-      					"providerId": "google.com",
-      					"uid": user.email
-      				}],
-      				tipo : "cliente",
-      				uid : user.uid
-			})
-
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
 			let loginContainer = document.querySelector('.login-container')
 
 			let html = `
 			<div class="col-md-12" style= "text-align: center">
-				<h2 class="section-title">Bienvenido ${user.displayName} </h2>
-				<img style="height: 50px; border-radius: 50%;" class="photoURL"
-				src=${user.photoURL} alt=${user.displayName} />
+				<h2 class="section-title">Bienvenido ${user.email} </h2>
 				<div class = "col-md-12">
 					<a id="salir" href="!#" class="waves-effect waves-light btn red darken-1">Salir</a>
 				</div>
@@ -143,18 +121,15 @@ function login (e) {
 
 			var btnSalir = document.querySelector('#salir')
 			btnSalir.addEventListener('click', logout)
-		})
-		.catch((err) => console.error(err.message))
+		} 
+	});
 }
 
 function logout (e) {
 	e.preventDefault()
 
 	firebase.auth().signOut().then(() => {
-		let loginContainer = document.querySelector('.login-container')
-		loginContainer.innerHTML = loginTemplate
-		var btnLogin = document.querySelector('#googleLogin')
-		if (btnLogin) btnLogin.addEventListener('click', login)
+		page.redirect('/')
 	})
 	.catch((error) => {
 		console.log(err.message)

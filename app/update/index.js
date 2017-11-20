@@ -10,6 +10,36 @@ if (!firebase.apps.length) {
 
 var db = firebase.database()
 
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+  	function obtenerDatos (dato) {
+		const datos = dato.val()
+		const keys = Object.keys(datos)
+		var html = ''
+		var htmlGame = ''
+		var index = ''
+
+		var admin = false
+
+		for( var i = 0; i <keys.length; i++) {
+			const key = keys[i]
+			const game = datos[key]
+			console.log(game)
+			if (game.uid == user.uid && game.tipo == "admin") {
+				admin = true
+			}	
+		}
+
+		if (admin == false) {
+			page.redirect('/')
+		}
+	}
+	db.ref('users').once('value').then(obtenerDatos)
+  } 
+});
+
+
 page('/update/:codigoGame', (ctx, next) => {
 	db.ref('/games/' + ctx.params.codigoGame).once('value').then((snapshot) => {
 		let game = snapshot.val()
