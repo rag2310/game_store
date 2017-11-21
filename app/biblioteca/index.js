@@ -25,17 +25,19 @@ const cargarDatos = () => {
 		  	for( var i = 0; i <keys.length; i++) {
 					const key = keys[i]
 					const game = datos[key]
-					htmlGame = `
-						<div class="product">
-							<div class="inner-product">
-								<div class="figure-image">
-									<img src="${game.url}">
+					if (user.uid == game.uidUser) {
+						htmlGame = `
+							<div class="product">
+								<div class="inner-product">
+									<div class="figure-image">
+										<img src="${game.url}">
+									</div>
+									<h3 class="product-title"><a href="/detalle/${key}">${game.nombre}</a></h3>
+									<small class="price"> Precio: $ ${game.precio}</small>
 								</div>
-								<h3 class="product-title"><a href="/detalle/${key}">${game.nombre}</a></h3>
-								<small class="price"> Precio: $ ${game.precio}</small>
-							</div>
-						</div>`
-					html += htmlGame
+							</div>`
+						html += htmlGame
+					}
 				}
 
 				index = `
@@ -62,7 +64,7 @@ const cargarDatos = () => {
 		});			
 	}
 
-	db.ref('games').once('value').then(obtenerDatos)
+	db.ref('biblioteca').once('value').then(obtenerDatos)
 }
 
 export default cargarDatos

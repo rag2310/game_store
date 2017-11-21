@@ -30,7 +30,7 @@ const cargarCarrito = () => {
 		    						<td>${item.precioGame}</td>
 		    						<td>${item.fechaAlta}</td>
 		    						<td>
-		    							<a href="/#">Quitar</a>
+		    							<a href="/compra/${item.keyGame}" class= "button"style = "margin-top:50px">Comprar</a>
 		  							</td>
 		  						</tr>`
 								html += htmlCarrito

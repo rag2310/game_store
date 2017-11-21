@@ -12,4 +12,6 @@ import './update'
 
 import './usuario'
 
+import './compra'
+
 page()

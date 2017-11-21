@@ -20,34 +20,6 @@ page('/guardar',() => {
 
 
 var formTemplate = `
-<!--<div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="nombre" type="text" class="validate">
-          <label for="nombre">Nombre</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="descripcion" type="text" class="validate">
-          <label for="apellido">Descripcion</label>
-        </div>
-        <div class="col s6">
-          <div class="file-field input-field">
-            <div class="btn">
-                <span>File</span>
-                <input type="file" id="file">
-            </div>
-             <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
-            </div>
-          </div>
-      </div>
-      <a id="guardar" class="waves-effect waves-light btn">Guardar</a>
-    </form>
-  </div>
-  </div>-->
-
 <div class="page">
 	<form>
 		<table class="cart">
