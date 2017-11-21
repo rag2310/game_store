@@ -26,8 +26,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 			var admin = ``
 			var guardar = ``
 			var biblioteca = '<li class="menu-item"><a href="/biblioteca">Biblioteca</a></li>'
+			var carrito = '<li class="menu-item"><a href="/carrito">Carrito</a></li>'
 			const header = document.querySelector('header')
-			header.innerHTML = menu(login,admin,guardar,biblioteca)
+			header.innerHTML = menu(login,admin,guardar,biblioteca,carrito)
 			var btnSalir = document.querySelector('#salir')
 			btnSalir.addEventListener('click', logout)
 
@@ -44,8 +45,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 					var admin = `<li class="menu-item"><a href="/admin">Admin</a></li>`
 					var guardar = `<li class="menu-item"><a href="/guardar">Guardar</a></li>`
 					var biblioteca = '<li class="menu-item"><a href="/biblioteca">Biblioteca</a></li>'
+					var carrito = '<li class="menu-item"><a href="/carrito">Carrito</a></li>'
 					const header = document.querySelector('header')
-					header.innerHTML = menu(login, admin, guardar,biblioteca)
+					header.innerHTML = menu(login, admin, guardar,biblioteca,carrito)
 					var btnSalir = document.querySelector('#salir')
 					btnSalir.addEventListener('click', logout)
 				}	
@@ -61,10 +63,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 		var admin = ``
 		var guardar = ``
 		var biblioteca = ''
-		header.innerHTML = menu(login,admin,guardar,biblioteca)
+		var carrito = ''
+		header.innerHTML = menu(login,admin,guardar,biblioteca,carrito)
   }
 
-  function menu(login,admin,guardar,biblioteca) {
+  function menu(login,admin,guardar,biblioteca,carrito) {
   	const menu = `
 		<div class="site-header" >
 				<div class="container">
@@ -82,6 +85,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 							<li  class="menu-item home"><a href="/"><img  class = icon-home src="https://firebasestorage.googleapis.com/v0/b/dbgamestore-2ad64.appspot.com/o/iconos%2Ficon-home.png?alt=media&token=1c7db695-de57-46ca-85c5-f9775cf2f583 "></img></a></li>
 							<li class="menu-item"><a href="/tienda">Tienda</a></li>
 							${biblioteca}
+							${carrito}
 							<li class="menu-item"><a href="/acercade">Acerca de</a></li>
 							${guardar}
 							${admin}

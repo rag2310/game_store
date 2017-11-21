@@ -33,6 +33,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 						</div>
 							<div class="addtocart-bar" class="col-md-12" style = "text-align:center" >
 											<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" class= "button"style = "margin-top:50px">borrar</a></h3>
+											<h3 class="product-title"><a id="carrito" key="${ctx.params.codigoGame}" nombreGame="${game.nombre}" precioGame="${game.precio}" class= "button"style = "margin-top:50px">Añadir Carrito</a></h3>
 											<h3 class="product-title"><a href="/update/${ctx.params.codigoGame}" style = "margin-top:0px" class="button">update</a></h3>
 							</div>
 						</div>
@@ -45,6 +46,9 @@ page('/detalle/:codigoGame', (ctx, next) => {
 		main.innerHTML = html
 		title.innerHTML = 'Detalle'
 
+		var carritoBtn = document.querySelector('#carrito')
+		carritoBtn.addEventListener('click', carrito)
+
 		var borrarBtn = document.querySelector('#borrar')
 		borrarBtn.addEventListener('click', borrar)
 	})
@@ -53,6 +57,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 function borrar () {
 	let doc = document;
 	let key  = doc.getElementById('borrar').getAttribute('key')
+
 
 	var confirmarBorrado = confirm("prueba")
 
@@ -64,4 +69,60 @@ function borrar () {
 
 		page.redirect('/tienda')
 	}
+}
+
+function carrito () {
+	let doc = document;
+	let keyG = doc.getElementById('carrito').getAttribute('key')
+	let nombre = doc.getElementById('carrito').getAttribute('nombreGame')
+	let precio = doc.getElementById('carrito').getAttribute('precioGame')
+
+	function obtenerDatosUsuarios (dato) {
+		const datos = dato.val()
+		const keys = Object.keys(datos)
+			debugger;
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+		var yyyy = today.getFullYear();
+
+		var existeGame = false
+		
+		if(dd<10) {
+	    dd = '0'+dd
+		} 
+
+		if(mm<10) {
+	    mm = '0'+mm
+		} 
+
+		today = mm + '/' + dd + '/' + yyyy;
+
+		for( var i = 0; i <keys.length; i++) {
+			const key = keys[i]
+			const item = datos[key]
+			if (item.keyGame == keyG) {
+				console.log("existe")
+				existeGame = true
+			} 		
+		}
+
+		if (existeGame == false) { 
+			firebase.auth().onAuthStateChanged(function(user) {
+					  if (user) {
+					    var ref = db.ref("carrito")
+							ref.push({
+								fechaAlta: today,
+								nombreGame: nombre,
+								precioGame: precio,
+								keyGame: keyG,
+								uidUser: user.uid
+							})
+					  }
+			});
+		}
+	}
+	db.ref('carrito').once('value').then(obtenerDatosUsuarios)	
+	
+	page.redirect('/carrito')
 }
