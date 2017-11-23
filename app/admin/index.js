@@ -1,56 +1,80 @@
+//IMPORT
 import firebase from 'firebase'
-
 import config from './../config'
-
 import page from 'page'
 
+//CONST
+const db = firebase.database()
+
+//CONFIGURACION DE LA BASE DE DATOS DE FIREBASE
 if (!firebase.apps.length) {
 	firebase.initializeApp(config)
 }
 
-var db = firebase.database()
 
 const cargarUsuarios = () => {
-	function obtenerDatos (dato) {
-		const datos = dato.val()
-		const keys = Object.keys(datos)
-		var html = ''
-		var htmlUser = ''
-		var index = ''
 
-		firebase.auth().onAuthStateChanged(function(user) {
-	  	if (user) {
-	  		function obtenerDatosUsuarios (dato) {
-					const datos = dato.val()
-					const keys = Object.keys(datos)
+	//Variables
+	var html = ''
+	var htmlUser = ''
+	var index = ''
 
-					var admin = false
+	//Obtenemos al USUARIO ACTUALMENTE LOGUEADO
+	firebase.auth().onAuthStateChanged(function(user) {
 
+		//COMPROBAMOS QUE EXISTA UN USUARIO LOGUEADO
+	 	if (user) {
+
+  		//OBTENEMOS LOS DATOS DE LOS USUARIOS DE LA BD
+  		function obtenerDatosUsuarios (dato) {
+  			
+  			//VARIABLES
+				const datos = dato.val()
+				const keys = Object.keys(datos)
+				var admin = false
+				
+				//RECORREMOS EL OBJECT  DE LOS USUARIOS
+				for( var i = 0; i <keys.length; i++) {
+					
+					//VARIABLES
+					const key = keys[i]
+					const usuario = datos[key]
+					
+					//COMPROBAMOS SI EL USUARIO ACTUAL ES ADMINISTRADOR
+					if (usuario.uid == user.uid && usuario.tipo == "admin") {
+						admin = true
+					}	
+				}
+				
+				//SI EL USUARIO NO ES ADMINISTRADOR SE REDIRECCIONA A HOMEPAGE
+				//EN CASO CONTRARIO SE INSERTA LA TABLA CON LOS USUARIOS
+				if (admin == false) {
+						page.redirect('/')
+				} else {
+					
+					//RECORREMOS EL OBJECT DE LOS USUARIOS
 					for( var i = 0; i <keys.length; i++) {
+						
+						//VARIABLES
 						const key = keys[i]
 						const usuario = datos[key]
-						if (usuario.uid == user.uid && usuario.tipo == "admin") {
-							admin = true
-						}	
-					}
-
-					if (admin == false) {
-						page.redirect('/')
-					} else {
-						for( var i = 0; i <keys.length; i++) {
-							const key = keys[i]
-							const usuario = datos[key]
-							htmlUser = `
-								<tr>
-	    						<td>${usuario.email}</td>
-	    						<td>${usuario.tipo}</td>
-	    						<td>
-	    							<a href="/usuario/${key}">Update</a>
-	  							</td>
-	  						</tr>`
-							html += htmlUser
+						
+						//INSERTAMOS LOS USUARIOS AL HTML
+						htmlUser = `
+							<tr>
+	    					<td>${usuario.email}</td>
+	    					<td>${usuario.tipo}</td>
+	    					<td>
+	    						<a href="/usuario/${key}">Update</a>
+	  						</td>
+	  					</tr>
+	  				`
+	  				
+	  				//INSERTAMOS EL HTML DE LA LISTA DE USUARIOS AL HTML PRINCIPAL
+						html += htmlUser
+						
 						}
-
+						
 						index = `
 							<table>
 								<tr>
@@ -59,19 +83,21 @@ const cargarUsuarios = () => {
 									<th style="border: 1px solid black;">Opciones</th>
 								</tr>
 								${html}
-							</table>`
+							</table>
+						`
 						
+						//INSERTAMOS EL HTML A EL MAIN DE LA PAGINA
 						const main = document.querySelector('main')
 						main.innerHTML = index
 					}
-				}
+			}
 				db.ref('users').once('value').then(obtenerDatosUsuarios)
 	  	} else {
 	  		page.redirect('/')
 	  	}
 		});
-}
-	db.ref('users').once('value').then(obtenerDatos)
+/*}
+	db.ref('users').once('value').then(obtenerDatos)*/
 }
 
 export default cargarUsuarios

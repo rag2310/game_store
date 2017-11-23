@@ -1,7 +1,9 @@
+//HTML DE LA PAGINA ACERCA DE
 const acercaDe = `
 	<h3>
 		TE DAMOS LA BIENVENIDA A GAMESTORE
 	</h3>
+
 	<p>
 		La plataforma de entretenimiento por excelencia.
 		Juega, conéctate y mucho más.
@@ -38,7 +40,8 @@ const acercaDe = `
 	</p>
 `
 
-const index =`
+//INSERTAMOS EL HTML DE ACERCA 
+const index = `
 	<main class="main-content">
 		<div class="container">
 			<div class="page">

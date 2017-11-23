@@ -14,4 +14,6 @@ import './usuario'
 
 import './compra'
 
+import './detalleBiblioteca'
+
 page()

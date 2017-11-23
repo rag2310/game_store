@@ -32,7 +32,7 @@ const cargarDatos = () => {
 									<div class="figure-image">
 										<img src="${game.url}">
 									</div>
-									<h3 class="product-title"><a href="/detalle/${key}">${game.nombre}</a></h3>
+									<h3 class="product-title"><a href="/detalleBiblioteca/${key}">${game.nombre}</a></h3>
 									<small class="price"> Precio: $ ${game.precio}</small>
 								</div>
 							</div>`

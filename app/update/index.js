@@ -151,7 +151,7 @@ function borrar () {
 	let doc = document;
 	let key  = doc.getElementById('borrar').getAttribute('key')
 
-	var confirmarBorrado = confirm("prueba")
+	var confirmarBorrado = confirm("¿Esta seguro de Eliminar?")
 
 	console.log(confirmarBorrado)
 
