@@ -31,7 +31,7 @@ const cargarUsuarios = () => {
 						const usuario = datos[key]
 						if (usuario.uid == user.uid && usuario.tipo == "admin") {
 							admin = true
-						}	
+						}
 					}
 
 					if (admin == false) {
@@ -42,25 +42,38 @@ const cargarUsuarios = () => {
 							const usuario = datos[key]
 							htmlUser = `
 								<tr>
-	    						<td>${usuario.email}</td>
-	    						<td>${usuario.tipo}</td>
-	    						<td>
-	    							<a href="/usuario/${key}">Update</a>
+	    						<td style= "text-align:center">${usuario.email}</td>
+	    						<td style= "text-align:center">${usuario.tipo}</td>
+	    						<td style= "text-align:center">
+	    							<a href="/usuario/${key}" class="button" >Actualizar</a>
 	  							</td>
 	  						</tr>`
 							html += htmlUser
 						}
 
 						index = `
-							<table>
-								<tr>
-									<th style="border: 1px solid black;">Email</th>
-									<th style="border: 1px solid black;">Tipo</th>
-									<th style="border: 1px solid black;">Opciones</th>
-								</tr>
-								${html}
-							</table>`
-						
+
+						<div class="container">
+							<div class="page">
+
+								<table class="cart">
+									<thead>
+										<tr>
+										<th class="product-name" style ="text-align:center">Email</th>
+										<th class="product-price">Tipo</th>
+										<th class="product-qty">Fecha</th>
+
+										</tr>
+									</thead>
+									<tbody style = "border-spacing: 0px 20px">
+										${html}
+									</tbody>
+								</table> <!-- .cart -->
+							</div>
+						</div> <!-- .container -->
+
+							`
+
 						const main = document.querySelector('main')
 						main.innerHTML = index
 					}

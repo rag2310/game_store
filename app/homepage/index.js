@@ -31,7 +31,7 @@ const homepage = () => {
 								if(game.tipo == "admin" && game.uid == user.uid)
 								{
 									admin = true
-								}	
+								}
 							}
 					}
 					db.ref('users').once('value').then(obtenerDatos)
@@ -104,7 +104,7 @@ main.innerHTML = `
 							<div class="product">
 								<div class="inner-product">
 									<div class="figure-image">
-										<a href="single.html"><img src="dummy/game-4.jpg" alt="juego 4"></a>
+										<a href="single.html"><img src="" alt="juego 4"></a>
 									</div>
 									<h3 class="product-title"><a href="#">Nombre</a></h3>
 									<small class="price">Precio</small>

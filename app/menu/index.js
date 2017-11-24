@@ -39,8 +39,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 					admin = true
 					var login = `
 						<div class="right-section pull-right">
-							<a href="/login" class="login-button">${user.email}</a>
-							<a id="salir">Salir</a>
+							<a href="/login" class="login-button cart">${user.email}</a>
+							<a id="salir" style = "margin-left:1px">Salir</a>
 						</div> <!-- .right-section -->`
 					var admin = `<li class="menu-item"><a href="/admin">Admin</a></li>`
 					var guardar = `<li class="menu-item"><a href="/guardar">Guardar</a></li>`
@@ -50,7 +50,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 					header.innerHTML = menu(login, admin, guardar,biblioteca,carrito)
 					var btnSalir = document.querySelector('#salir')
 					btnSalir.addEventListener('click', logout)
-				}	
+				}
 			}
 		}
 		db.ref('users').once('value').then(obtenerDatos)
@@ -112,4 +112,3 @@ firebase.auth().onAuthStateChanged(function(user) {
 		})
 	}
 });
-
