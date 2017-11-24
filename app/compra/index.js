@@ -41,6 +41,7 @@ page('/compra/:codigoGame', (ctx, next) => {
 						</div>
 						<div class="addtocart-bar" class="col-md-12" style = "text-align:center" >
 							<h3 class="product-title"><a id="comprar" 
+							keyGame="${ctx.params.codigoGame}"
 							descripcionGame="${game.descripcion}"
 							fecha_altaGame="${game.fecha_alta}"
 							generoGame="${game.genero}"
@@ -73,6 +74,7 @@ function comprar () {
 	//VARIABLES
 	let doc = document;
 	let descripcion1 = doc.getElementById('comprar').getAttribute('descripcionGame')
+	let key1 = doc.getElementById('comprar').getAttribute('keyGame')
 	let fecha1 = doc.getElementById('comprar').getAttribute('fecha_altaGame')
 	let genero1 = doc.getElementById('comprar').getAttribute('generoGame')
 	let id1 = doc.getElementById('comprar').getAttribute('idGame')
@@ -91,6 +93,7 @@ function comprar () {
 
 			//CREAMOS UN REGISTRO EN LA BASE DE DATOS EN LA TABLA BIBLIOTECA
 			ref.push({
+				keyG: key1,
 				descripcion: descripcion1,
 				fecha_alta: fecha1,
 				genero: genero1,
