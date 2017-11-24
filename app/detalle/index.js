@@ -46,13 +46,13 @@ page('/detalle/:codigoGame', (ctx, next) => {
 						//VARIFICAMOS QUE EL USUARIO LOGUEADO SEA ADMINISTRADOR
 						if (usuario.uid == user.uid && usuario.tipo == "admin") {
 							admin = true
-						}	
+						}
 					}
 
 					//SI ADMINISTRADOR SE HABILITAN LOS BATONES DE BORRAR Y ACTUALIZAR DE LOS JUEGOS EXPECIFICOS
 					if (admin) {
-						borrarbutton = `<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" class= "button"style = "margin-top:50px; background-color: red;">borrar</a></h3>`
-						update = `<h3 class="product-title"><a href="/update/${ctx.params.codigoGame}" style = "margin-top:0px" class="button">update</a></h3>`						
+						update = `<a href="/update/${ctx.params.codigoGame}"  class="button">Actualizar</a>`
+						borrarbutton = `<a id="borrar" key="${ctx.params.codigoGame}" class= "button"style = " background-color: red;">borrar</a>`
 					}
 
 					//INSERTAMOS INFORMACION EN EL HTML
@@ -72,19 +72,22 @@ page('/detalle/:codigoGame', (ctx, next) => {
 											<h2 class="entry-title">${game.nombre}</h2>
 											<small class="price"> $ ${game.precio}</small>
 											<p Style= "text-align: justify">${game.descripcion}</p>
+
+											<div class="addtocart-bar"  style = "text-align:center" >
+												${update}
+
+												<a id="carrito" key="${ctx.params.codigoGame}" nombreGame="${game.nombre}" precioGame="${game.precio}" urlGame="${game.url}"class= "button">Añadir Carrito</a>
+											${borrarbutton}
+											</div>
 										</div>
 									</div>
-									<div class="addtocart-bar" class="col-md-12" style = "text-align:center" >
-										${borrarbutton}
-										<h3 class="product-title"><a id="carrito" key="${ctx.params.codigoGame}" nombreGame="${game.nombre}" precioGame="${game.precio}" urlGame="${game.url}"class= "button"style = "margin-top:50px">Añadir Carrito</a></h3>
-										${update}
-									</div>
+
 								</div>
 							</div>
 						</div> <!-- .container -->
 					`
 
-					//OBTENEMOS ETIQUETAS ESPECIFICAS DEL HTML PARA INSERTAR 
+					//OBTENEMOS ETIQUETAS ESPECIFICAS DEL HTML PARA INSERTAR
 					const main = document.querySelector('main')
 					const title = document.querySelector('title')
 					main.innerHTML = html
@@ -99,7 +102,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 
 						//AGREGAMOS UN EVENTO CLICK AL BOTON DE BORRAR
 						var borrarBtn = document.querySelector('#borrar')
-						borrarBtn.addEventListener('click', borrar)	
+						borrarBtn.addEventListener('click', borrar)
 					}
 				}
 
@@ -154,7 +157,7 @@ function borrar () {
 
 	//VERIFICAMOS LA RESPUESTA DEL USUARIO CON EL TEMA DEL BORRADO
 	if (key!=null && confirmarBorrado == true) {
-		
+
 		//HACEMOS REFERENCIA A LA TABLA GAMES
 		var ref = db.ref("games")
 
@@ -184,18 +187,18 @@ function carrito () {
 		const keys = Object.keys(datos)
 		var today = new Date();
 		var dd = today.getDate();
-		var mm = today.getMonth()+1; 
+		var mm = today.getMonth()+1;
 		var yyyy = today.getFullYear();
 		var existeGame = false
 
 		//OBTENEMOS LAS FECHAS
 		if(dd<10) {
 			dd = '0'+dd
-		} 
+		}
 
 		if(mm<10) {
 			mm = '0'+mm
-		} 
+		}
 
 		today = mm + '/' + dd + '/' + yyyy;
 
@@ -215,13 +218,13 @@ function carrito () {
 					//VERIFICAMOS QUE EL JUEGO NO SE ENCUENTRE EN EL CARRITO Y NO SE DUPLIQUE
 					if (item.keyGame == keyG && item.uidUser == user.uid) {
 						existeGame = true
-					} 		
+					}
 				}
 
 				//SI EL JUEGO NO ESTA EN EL CARRITO SE PROCEDE A AGREGARLO
-				if (existeGame == false) { 
-					
-					//HACEMOS REFERENCIA A LA TABLA CARRITO 
+				if (existeGame == false) {
+
+					//HACEMOS REFERENCIA A LA TABLA CARRITO
 					var ref = db.ref("carrito")
 
 					//PROCEDEMOS A INSERTAR
@@ -239,7 +242,7 @@ function carrito () {
 	}
 
 	//hacemos REFERENCIA A LA TABLA CARRITO
-	db.ref('carrito').once('value').then(obtenerDatosUsuarios)	
+	db.ref('carrito').once('value').then(obtenerDatosUsuarios)
 
 	//REDIRECCIONAMOS A CARRITO
 	page.redirect('/carrito')
