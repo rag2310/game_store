@@ -26,7 +26,7 @@ var loginTemplate = `
 					</form>
 			</div>
 			</div> <!-- .column -->
-		</div> <!-- .row -->
+</div> <!-- .row -->
 `
 
 var template = `

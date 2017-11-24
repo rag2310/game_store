@@ -51,7 +51,7 @@ page('/detalle/:codigoGame', (ctx, next) => {
 
 					//SI ADMINISTRADOR SE HABILITAN LOS BATONES DE BORRAR Y ACTUALIZAR DE LOS JUEGOS EXPECIFICOS
 					if (admin) {
-						borrarbutton = `<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" class= "button"style = "margin-top:50px">borrar</a></h3>`
+						borrarbutton = `<h3 class="product-title"><a id="borrar" key="${ctx.params.codigoGame}" class= "button"style = "margin-top:50px; background-color: red;">borrar</a></h3>`
 						update = `<h3 class="product-title"><a href="/update/${ctx.params.codigoGame}" style = "margin-top:0px" class="button">update</a></h3>`						
 					}
 

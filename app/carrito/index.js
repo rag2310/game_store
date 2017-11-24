@@ -59,6 +59,7 @@ const cargarCarrito = () => {
 								<td  class="product-price">${item.fechaAlta}</td>
 								<td>
 									<a href="/compra/${item.keyGame}" class= "button product-price"style = "margin-top:10px; text-align: center;">Comprar</a>
+									<a id="borrar" key="${key}"  class= "button product-price" style = "margin-top:10px; text-align: center; background-color: red;">borrar</a>
 								</td>
 							</tr>
 						`
@@ -92,10 +93,38 @@ const cargarCarrito = () => {
 				//OBTENEMOS EL MAIN DE LA PAGINA PRINCIPAL PARA INSERTAR EL HTML
 				const main = document.querySelector('main')
 				main.innerHTML = index
+
+
+				var borrarBtn = document.querySelector('#borrar')
+				borrarBtn.addEventListener('click', borrar)	
 			}
 
 			//HACEMOS REFERENCIA A LA TABLA DE CARRITO PARA OBTENER INFORMACION 
 			db.ref('carrito').once('value').then(obtenerDatosCarrito)
+
+			function borrar () {
+
+				//VARIABLES
+				let doc = document;
+				let key  = doc.getElementById('borrar').getAttribute('key')
+
+				debugger
+				//CONFIRMAMOS CON EL USUARIO SI DESEA BORRAR
+				var confirmarBorrado = confirm("¿Esta seguro de Eliminar?")
+
+				//VERIFICAMOS LA RESPUESTA DEL USUARIO CON EL TEMA DEL BORRADO
+				if (key!=null && confirmarBorrado == true) {
+					
+					//HACEMOS REFERENCIA A LA TABLA GAMES
+					var ref = db.ref("carrito")
+
+					//PROCEDEMOS A BORRAR
+					ref.child(key).remove()
+
+					//REDIRECCIONAMOS A TIENDA
+					page.redirect('/carrito')
+				}
+			}
 		} else {
 
 			//REDIRECCIONAMOS A HOMEPAGE
