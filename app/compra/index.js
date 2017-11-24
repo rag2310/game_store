@@ -100,6 +100,8 @@ function comprar () {
 				uidUser: user.uid,
 				url: url1
 			})
+
+			page.redirect('/biblioteca')
 		}
 	});
 }
