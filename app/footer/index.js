@@ -1,3 +1,4 @@
+//CREAMOS EL HTML DEL FOOTER
 const pie_de_pagina = `
 	<div class="site-footer">
 		<div class="colophon">
@@ -7,6 +8,9 @@ const pie_de_pagina = `
 		</div> <!-- .colophon -->
 	</div> <!-- .container -->
 `
+
+//OBTENEMOS ETIQUETAS ESPECIFICAS
 const footer = document.querySelector('footer')
 
+//INSERTAMOS EL HTML AL FOOTER
 footer.innerHTML = pie_de_pagina

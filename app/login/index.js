@@ -6,6 +6,8 @@ if (!firebase.apps.length) {
 	firebase.initializeApp(config)
 }
 
+const db = firebase.database()
+
 var loginTemplate = `
 <div class="col-md-12" style= "text-align: center">
 				<h2 class="section-title">Sign in/ Sign up</h2>
@@ -86,7 +88,7 @@ function loginEmail (e) {
 				var errorMessage = error.message;
 			})			
 
-			var db = firebase.database()
+			
 
 			firebase.auth().onAuthStateChanged(function(user) {
 			if (user) {
