@@ -2,13 +2,13 @@
 import firebase from 'firebase'
 import config from './../config'
 
-//variables
-const db = firebase.database()
-
 //CONFIGURACION DE LA BASE DE DATOS DE FIREBASE
 if (!firebase.apps.length) {
 	firebase.initializeApp(config)
 }
+
+//variables
+const db = firebase.database()
 
 const homepage = () => {
 
