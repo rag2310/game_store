@@ -17,7 +17,6 @@ const cargarCarrito = () => {
 
 		//COMPROBAMOS QUE SI ESTE LOGUEADO EL USUARIO
 		if (user) {
-			
 			//OBTENEMOS LOS DATOS DE LA TABLA CARRITO 
 			function obtenerDatosCarrito (dato) {
 
@@ -37,21 +36,24 @@ const cargarCarrito = () => {
 
 					//validamos que solo los JUEGOS DEL USUARIO SE CARGUEN AL HTML
 					if (user.uid == item.uidUser) {
-						
+
 						//INSERTAMOS INFORMACION DE LOS JUEGOS AL HTML
 						htmlCarrito = `
-							<tr>
-								<td>
-									<div class="product-thumbnail">
-										<img src="${item.urlGame}" height="42" width="42">										
-									</div>
-								</td>
+						<tr>
 								<td  class="product-name">
 									<div class="product-detail">
+
+									<div class="product-thumbnail">
+										<a href="${item.urlGame}">
+											<img src="${item.urlGame}" height="150" width="250">
+										</a>
+									</div>
+									</div>
+								</td>
+								<td   class="product-price">
 										<h3 class="product-title">
 											${item.nombreGame}
 										</h3>
-									</div>
 								</td>
 								<td  class="product-price">$${item.precioGame}</td>
 								<td  class="product-price">${item.fechaAlta}</td>

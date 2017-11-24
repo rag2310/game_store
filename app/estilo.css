@@ -1993,7 +1993,7 @@ form textarea {
 }
 .site-header .cart {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
-  padding-right: 20px;
+  padding-right: 5px;
   -webkit-transition: .3s ease;
           transition: .3s ease;
 }
