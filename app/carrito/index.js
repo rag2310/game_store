@@ -17,7 +17,7 @@ const cargarCarrito = () => {
 
 		//COMPROBAMOS QUE SI ESTE LOGUEADO EL USUARIO
 		if (user) {
-			//OBTENEMOS LOS DATOS DE LA TABLA CARRITO 
+			//OBTENEMOS LOS DATOS DE LA TABLA CARRITO
 			function obtenerDatosCarrito (dato) {
 
 				//VARIABLES
@@ -43,23 +43,23 @@ const cargarCarrito = () => {
 								<td  class="product-name">
 									<div class="product-detail">
 
-									<div class="product-thumbnail">
+									<div class="product-thumbnail" style ="text-align:center">
 										<a href="${item.urlGame}">
 											<img src="${item.urlGame}" height="150" width="250">
 										</a>
 									</div>
 									</div>
 								</td>
-								<td   class="product-price">
-										<h3 class="product-title">
+								<td   class="product-price" style ="text-align:center">
+										<h3 class="product-title" style = "margin: 31px">
 											${item.nombreGame}
 										</h3>
 								</td>
-								<td  class="product-price">$${item.precioGame}</td>
-								<td  class="product-price">${item.fechaAlta}</td>
-								<td>
-									<a href="/compra/${item.keyGame}" class= "button product-price"style = "margin-top:10px; text-align: center;">Comprar</a>
-									<a id="borrar" key="${key}"  class= "button product-price" style = "margin-top:10px; text-align: center; background-color: red;">borrar</a>
+								<td  class="product-price" style ="text-align:center"  style = "margin: 31px">$${item.precioGame}</td>
+								<td  class="product-price" style ="text-align:center"  style = "margin: 31px">${item.fechaAlta}</td>
+								<td style ="text-align:center">
+									<a href="/compra/${item.keyGame}" class= "button product-price"style = "margin:31px;margin-right:0px; text-align: center;">Comprar</a>
+									<a id="borrar" key="${key}"  class= "button product-price" style = " text-align: center; background-color: red;">borrar</a>
 								</td>
 							</tr>
 						`
@@ -68,18 +68,18 @@ const cargarCarrito = () => {
 					}
 				}
 
-				//INSERTAMOS EL HTML CON LA INFORMACION 
+				//INSERTAMOS EL HTML CON LA INFORMACION
 				index = `
 				<div class="container">
 					<div class="page">
-						<table class="cart">
+						<table class="cart" style = "border-spacing: 0px 20px">
 							<thead>
 								<tr>
-									<th class="product-name">Caratula</th>								
-									<th class="product-name">Juego</th>
-									<th class="product-name">Precio</th>
-									<th class="product-name">Fecha</th>
-									<th class="product-name">Opciones</th>
+									<th class="product-name" style ="text-align:center">Caratula</th>
+									<th class="product-name" style ="text-align:center">Juego</th>
+									<th class="product-name" style ="text-align:center">Precio</th>
+									<th class="product-name" style ="text-align:center">Fecha</th>
+									<th class="product-name" style ="text-align:center">Opciones</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -96,10 +96,10 @@ const cargarCarrito = () => {
 
 
 				var borrarBtn = document.querySelector('#borrar')
-				borrarBtn.addEventListener('click', borrar)	
+				borrarBtn.addEventListener('click', borrar)
 			}
 
-			//HACEMOS REFERENCIA A LA TABLA DE CARRITO PARA OBTENER INFORMACION 
+			//HACEMOS REFERENCIA A LA TABLA DE CARRITO PARA OBTENER INFORMACION
 			db.ref('carrito').once('value').then(obtenerDatosCarrito)
 
 			function borrar () {
@@ -114,7 +114,7 @@ const cargarCarrito = () => {
 
 				//VERIFICAMOS LA RESPUESTA DEL USUARIO CON EL TEMA DEL BORRADO
 				if (key!=null && confirmarBorrado == true) {
-					
+
 					//HACEMOS REFERENCIA A LA TABLA GAMES
 					var ref = db.ref("carrito")
 

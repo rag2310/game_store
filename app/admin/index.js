@@ -42,7 +42,7 @@ const cargarUsuarios = () => {
 				//COMPROBAMOS SI EL USUARIO ACTUAL ES ADMINISTRADOR
 				if (usuario.uid == user.uid && usuario.tipo == "admin") {
 					admin = true
-				}	
+				}
 			}
 
 			//SI EL USUARIO NO ES ADMINISTRADOR SE REDIRECCIONA A HOMEPAGE
@@ -85,7 +85,7 @@ const cargarUsuarios = () => {
 									<tr>
 									<th class="product-name" style ="text-align:center">Email</th>
 									<th class="product-price">Tipo</th>
-									<th class="product-qty">Fecha</th>
+									<th class="product-qty">Opcion</th>
 
 									</tr>
 								</thead>
@@ -109,7 +109,7 @@ const cargarUsuarios = () => {
 	  	//REDIRECCIONAMOS A HOMEPAGE
 	  	page.redirect('/')
 	  }
-	});	
+	});
 }
 
 export default cargarUsuarios
