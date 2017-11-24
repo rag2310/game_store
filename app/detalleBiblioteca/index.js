@@ -1,17 +1,25 @@
-const page = require('page')
-const firebase = require('firebase')
+//IMPORT
+import firebase from 'firebase'
+import config from './../config'
+import page from 'page'
 
-const config = require('./../config')
+const db = firebase.database()
 
+//CONFIGURACION DE LA BASE DE DATOS DE FIREBASE
 if (!firebase.apps.length) {
 	firebase.initializeApp(config)
-	}
+}
 
-var db = firebase.database()
-
+//RUTA DEL DETALLE DE LOS JUEGOS DE LA BIBLIOTECA
 page('/detalleBiblioteca/:codigoGame', (ctx, next) => {
+
+	//HACEMOS REFERENCIA A UN JUEGO ESPECIFICO
 	db.ref('/biblioteca/' + ctx.params.codigoGame).once('value').then((snapshot) => {
+
+		//VARIABLE
 		let game = snapshot.val()
+
+		//INSERTAMOS INFORMACION A EL HTML
 		let html = `
 			<div class="container">
 				<div class="page">
@@ -30,11 +38,11 @@ page('/detalleBiblioteca/:codigoGame', (ctx, next) => {
 								<p Style= "text-align: justify">${game.descripcion}</p>
 							</div>
 						</div>
-						</div>
 					</div>
 				</div>
-			</div> <!-- .container -->`
-
+			</div> <!-- .container -->
+		`
+		//OBTENEMOS ETIQUETAS DEL HTML
 		const main = document.querySelector('main')
 		const title = document.querySelector('title')
 		main.innerHTML = html

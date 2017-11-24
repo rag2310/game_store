@@ -6,6 +6,6 @@ var config = {
     projectId: "dbgamestore-2ad64",
     storageBucket: "dbgamestore-2ad64.appspot.com",
     messagingSenderId: "192117113206"
-  }
+};
 
 export default config
